@@ -38,6 +38,7 @@ namespace filecheck
         private void button2_Click(object sender, EventArgs e)
         {
             Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             Console.Write("Ins Start : ");
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.ffff"));
@@ -47,8 +48,6 @@ namespace filecheck
             string sQry;
 
             mydb.DBConnect();
-
-            stopwatch.Start();
 
             System.IO.DirectoryInfo fi = new System.IO.DirectoryInfo(textBox1.Text);
 
@@ -68,9 +67,8 @@ namespace filecheck
                 mydb.ExecuteQuery(sQry);
             }
 
-
             mydb.DBDisconnect();
-            
+
             Console.Write("Ins End : ");
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss.ffff"));
             stopwatch.Stop();
